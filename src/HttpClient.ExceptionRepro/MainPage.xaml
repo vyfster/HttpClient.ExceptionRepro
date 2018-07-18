@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localvm="clr-namespace:HttpClient.ExceptionRepro.ViewModel"
+             IsBusy="{Binding IsBusy}"
+             x:Class="HttpClient.ExceptionRepro.MainPage">
+
+    <ContentPage.BindingContext>
+        <localvm:MainPageViewModel ServerLocation="[CHANGE THIS TO YOUR SERVER LOCATION]"/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+    	<Label Text="{Binding UploadResult}" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+
+        <Label Text="{Binding StatusCode}"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+
+        <Button Text="Upload Success" Command="{Binding UploadDataExpectSuccess}" CommandParameter="HttpClient.ExceptionRepro.lorum_lipsum_15kb.txt" IsEnabled="{Binding UploadButtonsEnabled}" />
+        <Button Text="Upload Exception" Command="{Binding UploadDataExpectException}" CommandParameter="HttpClient.ExceptionRepro.lorum_lipsum_1_4mb.txt" IsEnabled="{Binding UploadButtonsEnabled}"/>
+    </StackLayout>
+
+</ContentPage>

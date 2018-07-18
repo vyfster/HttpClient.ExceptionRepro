@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="lorum_lipsum_15kb.txt" />
+    <None Remove="lorum_lipsum_1_4mb.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="lorum_lipsum_15kb.txt" />
+    <EmbeddedResource Include="lorum_lipsum_1_4mb.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
+  </ItemGroup>
+</Project>
